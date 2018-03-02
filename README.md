@@ -2,7 +2,6 @@
 
 The simplest vm image deploy I can think of.
 
-
 ## Step 1: Build VM Image
 
 ```
@@ -67,14 +66,13 @@ terraform apply
 ```
 
 Terraform knows we're reckless, so it makes us type "yes" at the prompt before
-actually going through with creating the droplets.
+actually going through with creating the droplet and floating IP.
 
 If we're successful, we'll see the following message.
 
 ```
 Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 ```
-
 
 ## Some helpful doctl commands
 
