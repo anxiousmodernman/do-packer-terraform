@@ -1,0 +1,9 @@
+
+# Terraform's internal state
+*.tfstate
+*.tfstate.backup
+.terraform
+
+# Our terraform.tfvars file contains our secret DO API key. Don't check it in.
+terraform.tfvars
+

@@ -1,0 +1,8 @@
+
+# Copy/rename this file to terraform.tfvars 
+# Our main.tf file will automatically pick these up.
+# Note that there are many ways to pass variables to Terraform.
+
+do_token = "<api token here>"
+
+centos_base_image_id = "<base snapshot integer ID>"

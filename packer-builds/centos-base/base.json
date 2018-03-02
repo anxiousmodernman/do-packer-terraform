@@ -1,0 +1,38 @@
+{
+    "variables": {
+        "do_api_token": "{{ env `DIGITALOCEAN_API_TOKEN` }}",
+        "region": "sfo2"
+    },
+    "builders": [
+        {
+            "type": "digitalocean",
+            "image": "centos-7-x64",
+            "snapshot_name": "centos-base-{{ timestamp }}",
+            "region": "{{ user `region` }}",
+            "size": "512mb",
+            "ssh_username": "root",
+            "api_token": "{{ user `do_api_token` }}"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "execute_command": "echo {{user `ssh_username`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+            "scripts": [
+                "../scripts/user.sh"
+            ]
+        },
+        {
+            "type": "file",
+            "source": "id_rsa.pub",
+            "destination": "/home/coleman/.ssh/id_rsa.pub"
+        },
+        {
+            "type": "shell",
+            "execute_command": "echo {{user `ssh_username`}} | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+            "scripts": [
+                "../scripts/ssh-keys.sh"
+            ]
+        }
+    ]
+}
