@@ -7,6 +7,7 @@ The simplest vm image deploy I can think of.
 
 ```
 cd packer-builds/centos-base
+export DIGITALOCEAN_API_TOKEN=<THIS IS A SECRET>
 ./build.sh
 ```
 
