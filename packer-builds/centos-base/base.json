@@ -1,6 +1,7 @@
 {
     "variables": {
         "do_api_token": "{{ env `DIGITALOCEAN_API_TOKEN` }}",
+        "do_user": "{{ env `DIGITALOCEAN_USER` }}",
         "region": "sfo2"
     },
     "builders": [
@@ -25,7 +26,7 @@
         {
             "type": "file",
             "source": "id_rsa.pub",
-            "destination": "/home/coleman/.ssh/id_rsa.pub"
+            "destination": "/home/{{ user `do_user`}}/.ssh/id_rsa.pub"
         },
         {
             "type": "shell",
